@@ -8,14 +8,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-    <Text tstyle={styles.text}>Ballroomdance</Text>
-     <View style={{paddingBottom:100, width: null,height: null,  }}> 
+    <Text style={styles.text}>Ballroomdance</Text>
+     <View style={{paddingBottom:10, width: null,height: null,  }}> 
           <Image resizeMode="cover" source={require('./source/images.jpg')}  />
      </View>
       <View style={styles.button}>
       <Button color='#00A1E4'
       title="About us"
-      onPress={() => navigation.navigate("About Us")}
+      onPress={() => navigation.navigate("About Dancing")}
       />
       <Button color='#00A1E4'
         title="Contact Us"
@@ -34,14 +34,16 @@ function HomeScreen({ navigation }) {
 
 function AboutDancing({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'left', justifyContent: 'left'}}>
-      <Text tstyle={styles.text}>Ballroom dance is a set of partner dances, which are enjoyed both socially and competitively around the world, mostly because of its performance and entertainment aspects. Ballroom dancing is also widely enjoyed on stage, film, and television.
+    <View style={{ flex: 1, }}>
+      <Text style={styles.text2}>Ballroom dance is a set of partner dances, which</Text>
+      <Text style={styles.text2}>  are enjoyed both socially and competitively around the world, mostly because of its performance and </Text>
+      <Text style={styles.text2}> entertainment aspects. Ballroom dancing is also widely enjoyed on stage, film, and television.</Text>
+      <View style={styles.picture}>
 
-Ballroom dance may refer, at its widest definition, to almost any recreational dance with a partner. However, with the emergence of dance competition (now known as Dancesport), two principal schools have emerged and the term is used more narrowly to refer to the dances recognized by those schools.
+        <Image source={require('./source/tanc5.jpg')}/>
 
-The International School, originally developed in England[1] and now regulated by the World Dance Council (WDC) and the World DanceSport Federation (WDSF), is most prevalent in Europe. It encompasses two categories, Standard and Latin, each of which consist of five dances—International Waltz, International Tango, International Viennese Waltz, International Slow Foxtrot, and International Quickstep in the Standard category and International Samba, International Cha Cha, International Rumba, International Paso Doble, and International Jive in the Latin category. A "Standard" or "Latin" competition encompasses all five dances in the respective category, and a "Ten Dance" competition encompasses all ten dances. The two styles, while differing in technique, rhythm, and costumes, exemplify core elements of ballroom dancing such as control and cohesiveness.
-The American School, also called North American School, is most prevalent in the United States and Canada, where it's regulated by USA Dance and Canada Dancesport (CDS) -- the respective national member bodies of the WDSF. It also consists of two categories analogous to the Standard and Latin categories of the International School, respectively called Smooth and Rhythm. The Smooth category consists of only four dances—American Waltz, American Tango, American Foxtrot, and American Viennese Waltz, omitting American Peabody (the American School equivalent to Quickstep) -- while the dances selected for competition in the Rhythm category are American Cha Cha, American Rumba, American East Coast Swing (the American School equivalent to International Jive), American Bolero, and American Mambo.[2][3] A "Smooth" or "Rhythm" competition encompasses the dances in the respective category, and a "Nine Dance" competition encompassing all nine of these dances is analogous to the "Ten Dance" competition of the International School. USA Dance additionally recognizes American Peabody, American Merengue, American Paso Doble, American Samba, American West Coast Swing, American Polka, and American Hustle as ballroom dances in which sanctioned competition may take place.
-</Text>
+       
+      </View>
       <View style={styles.button}>
       <Button color='#00A1E4'
         title="back"
@@ -56,19 +58,17 @@ The American School, also called North American School, is most prevalent in the
 
 function ContactUs({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'left'}}>
-      <Text tstyle={styles.text}>Telefonszám:+3630 </Text>
+    <View style={{ flex: 1}}>
+      <Text tstyle={styles.text}>Send an email to ****** dance</Text>
       <Text tstyle={styles.text}>E-mail:</Text>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="useless placeholder"
+        placeholder="E-mail"
         keyboardType="numeric"
       />
       <View style={styles.button}>
       <Button color='#00A1E4'
-        title="submit"
+        title="Send"
       />
       <View style={styles.button}>
       <Button color='#00A1E4'
@@ -77,7 +77,7 @@ function ContactUs({ navigation }) {
       />
      </View>
     </View>
-
+</View>
   );
 }
 
@@ -85,13 +85,15 @@ function ContactUs({ navigation }) {
 function Pictures({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text tstyle={styles.text}>_________________ </Text>
+      <Text style={styles.text}>_________________ </Text>
       <Text style={styles.text}>Ballroomdance</Text>
+      <View style={styles.image}>
+           <Image source={require('./source/tanc4.jpg')}  />
+    
+      </View>
       <View>
-           <Image source={require('./source/tanc1.jpg')}  />
-           <Image source={require('./source/tanc2.jpg')}  />
-            <Image source={require('./source/tanc3.jpg')}  />
-            <Image source={require('./source/tanc4.jpg')}  />
+           <Image source={require('./source/tanc3.jpg')}  />
+    
       </View>
       <View style={styles.button}>
       <Button color='#00A1E4'
@@ -123,16 +125,25 @@ const styles=StyleSheet.create({
 
     text:{
       fontSize: 26,
-      color:'#423e3e',
-      paddingBottom: 70,
+      color:'darkblue',
+      paddingBottom: 30,
       fontWeight: 'bold',
 
     },
+    text2:{
+      fontSize: 15,
+      color:'black',
+      paddingBottom: 10,
+      justifyContent: 'center'
+    },
+    picture:{
+      justifycontent:'center'
+    },
     button:{
-    marginTop:20,
-    paddingTop:20,
-    paddingBottom:20,
-    width: 200
+      width: '100%',
+      height: '80%',
+      justifyContent: 'center',
+      alignItems: 'center'
 
     },
     input:{
@@ -141,9 +152,12 @@ const styles=StyleSheet.create({
       borderWidth: 1,
       padding: 10,
      borderColor: '#00A1E4'
-    }
+    },
+    image:{
+     paddingBottom:30
+    },
 
-})
+  })
 
 
 export default App;
